@@ -1,0 +1,16 @@
+{
+    "name": "heykimiee/site",
+    "description": "HeyKimiee WordPress website",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ben Moore",
+            "email": "bmo@skypress.io"
+        }
+    ],
+    "minimum-stability": "alpha",
+    "require": {},
+    "config": {
+      "vendor-dir": "wp-content/vendor"
+    }
+}

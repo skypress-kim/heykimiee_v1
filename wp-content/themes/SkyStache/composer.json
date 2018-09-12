@@ -1,0 +1,21 @@
+{
+    "name": "skypress/skystache",
+    "description": "SkyPress Parent theme using Mustache based templating",
+    "type": "wordpress-theme",
+    "require": {
+        "composer/installers": "^1.5"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ben Moore",
+            "email": "bmo@skypress.io"
+        }
+    ],
+    "minimum-stability": "alpha",
+    "autoload": {
+      "psr-4": {
+        "SkyStache\\":"src/"
+      }
+    }
+}

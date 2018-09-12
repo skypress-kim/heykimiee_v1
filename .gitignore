@@ -112,3 +112,5 @@ wp-content/upgrade
 #wordpress/**/.gitignore
 #!wordpress/.gitignore
 #angular/**/.gitignore
+
+/vendor/
