@@ -1,5 +1,5 @@
 <?php
-namespace SkyStache;
+namespace SkyForge;
 
 /**
  * Init Class

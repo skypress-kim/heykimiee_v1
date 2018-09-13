@@ -8,8 +8,15 @@
             "email": "bmo@skypress.io"
         }
     ],
-    "minimum-stability": "alpha",
-    "require": {},
+    "repositories":[
+      {
+        "type": "vcs",
+        "url": "git@github.com:SkyPressATX/skyforge.git"
+      }
+    ],
+    "require": {
+      "skypress/skyforge": "dev-master"
+    },
     "config": {
       "vendor-dir": "wp-content/vendor"
     }

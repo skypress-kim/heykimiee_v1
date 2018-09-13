@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "81f3e2f01c0012ab4d1d03f62a6190c7",
+    "content-hash": "2a60c904f64653766a10ee6e2ac71420",
     "packages": [
         {
             "name": "composer/installers",
-            "version": "v1.5.0",
+            "version": "v1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "049797d727261bf27f2690430d935067710049c2"
+                "reference": "cfcca6b1b60bc4974324efb5783c13dca6932b5b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/049797d727261bf27f2690430d935067710049c2",
-                "reference": "049797d727261bf27f2690430d935067710049c2",
+                "url": "https://api.github.com/repos/composer/installers/zipball/cfcca6b1b60bc4974324efb5783c13dca6932b5b",
+                "reference": "cfcca6b1b60bc4974324efb5783c13dca6932b5b",
                 "shasum": ""
             },
             "require": {
@@ -124,13 +124,104 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2017-12-29T09:13:20+00:00"
+            "time": "2018-08-27T06:10:37+00:00"
+        },
+        {
+            "name": "mustache/mustache",
+            "version": "v2.12.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bobthecow/mustache.php.git",
+                "reference": "fe8fe72e9d580591854de404cc59a1b83ca4d19e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bobthecow/mustache.php/zipball/fe8fe72e9d580591854de404cc59a1b83ca4d19e",
+                "reference": "fe8fe72e9d580591854de404cc59a1b83ca4d19e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.4"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "~1.11",
+                "phpunit/phpunit": "~3.7|~4.0|~5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Mustache": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Justin Hileman",
+                    "email": "justin@justinhileman.info",
+                    "homepage": "http://justinhileman.com"
+                }
+            ],
+            "description": "A Mustache implementation in PHP.",
+            "homepage": "https://github.com/bobthecow/mustache.php",
+            "keywords": [
+                "mustache",
+                "templating"
+            ],
+            "time": "2017-07-11T12:54:05+00:00"
+        },
+        {
+            "name": "skypress/skyforge",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/SkyPressATX/skyforge.git",
+                "reference": "06a8e33b7e3dc0ee3097922d30f5720636f2ea7c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/SkyPressATX/skyforge/zipball/06a8e33b7e3dc0ee3097922d30f5720636f2ea7c",
+                "reference": "06a8e33b7e3dc0ee3097922d30f5720636f2ea7c",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "^1.6",
+                "mustache/mustache": "^2.12"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^7.3"
+            },
+            "type": "wordpress-theme",
+            "autoload": {
+                "psr-4": {
+                    "SkyForge\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ben Moore",
+                    "email": "bmo@skypress.io"
+                }
+            ],
+            "description": "SkyForge is a template based WordPress theme created by SkyPress.",
+            "support": {
+                "source": "https://github.com/SkyPressATX/skyforge/tree/master",
+                "issues": "https://github.com/SkyPressATX/skyforge/issues"
+            },
+            "time": "2018-09-13T03:53:18+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
-    "minimum-stability": "alpha",
-    "stability-flags": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "skypress/skyforge": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

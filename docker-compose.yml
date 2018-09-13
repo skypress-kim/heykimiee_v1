@@ -6,15 +6,16 @@ services:
         links:
             - mysqldb:mysql
         volumes:
-            - ./wp-content:/var/www/html/wp-content
-        ports:
-            - 8080:80
+            - ./:/var/www/html/
+        expose:
+          - "80"
         environment:
             WORDPRESS_DB_USER: wordpress
             WORDPRESS_DB_PASSWORD: wordpress
+            VIRTUAL_HOST: heykimiee.local
 
     mysqldb:
-        image: mariadb:latest
+        image: mysql:5
         volumes:
             - db_data:/var/lib/mysql
         environment:
@@ -27,10 +28,16 @@ services:
         image: phpmyadmin/phpmyadmin:latest
         links:
             - mysqldb:mysql
-        ports:
-            - 8181:80
+        expose:
+          - "80"
         environment:
             PMA_HOST: mysql
+            VIRTUAL_HOST: pma.heykimiee.local
 
 volumes:
     db_data:
+
+networks:
+  default:
+    external:
+      name: nginxproxy

@@ -1,77 +1,80 @@
-# See http://help.github.com/ignore-files/ for more about ignoring files.
-
 *~
-
-# package locks
-angular/package-lock.json
-angular/yarn.lock
-angular/yarn-error.log
-
-# compiled output
-angular/dist
-angular/tmp
-angular/out-tsc
-
-# dependencies
-**/node_modules
-**/vendor
-
-# IDEs and editors
-angular/.idea
-.project
-.classpath
-.c9/
-*.launch
-.settings/
-*.sublime-workspace
-
-# IDE - VSCode
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-
-# misc
-angular/.sass-cache
-angular/connect.lock
-angular/coverage
-angular/libpeerconnection.log
-angular/npm-debug.log
-angular/testem.log
-angular/typings
-
-# e2e
-angular/e2e/*.js
-angular/e2e/*.map
-
-# System Files
 .DS_Store
-Thumbs.db
 .svn
 .cvs
 *.bak
 *.swp
+Thumbs.db
+
+# Project Specific
+**/vendor
+.htaccess
+
+# wordpress specific
+wp-config.php
+wp-content/uploads/
+wp-content/blogs.dir/
+wp-content/upgrade/*
+wp-content/backup-db/*
+wp-content/advanced-cache.php
+wp-content/wp-cache-config.php
+wp-content/cache/*
+wp-content/cache/supercache/*
 
 # wpengine specific
+.smushit-status
+.gitattributes
+_wpeprivate*
 wp-content/object-cache.php
 wp-content/mu-plugins/mu-plugin.php
 wp-content/mu-plugins/slt-force-strong-passwords.php
-wp-content/mu-plugins/limit-login-attempts
-wp-content/mu-plugins/wpengine-common
+wp-content/mu-plugins/stop-long-comments.php
+wp-content/mu-plugins/force-strong-passwords*
+wp-content/mu-plugins/wpengine-common*
 wp-content/mysql.sql
 
-# extra WordPress files
-#**/index.html
-wp-content/index.php
-wp-content/themes/index.php
-wp-content/plugins/index.php
-wp-content/themes/twentyseventeen
-wp-content/themes/twentysixteen
-wp-content/themes/twentyfifteen
-wp-content/plugins/akismet
-wp-content/plugins/hello.php
-wp-content/upgrade
+# wp core (as of 4.9.5)
+/db-config.php
+/index.php
+/license.txt
+/readme.html
+/wp-activate.php
+/wp-app.php
+/wp-atom.php
+/wp-blog-header.php
+/wp-comments-post.php
+/wp-commentsrss2.php
+/wp-config-sample.php
+/wp-cron.php
+/wp-feed.php
+/wp-links-opml.php
+/wp-load.php
+/wp-login.php
+/wp-mail.php
+/wp-rdf.php
+/wp-rss.php
+/wp-rss2.php
+/wp-pass.php
+/wp-register.php
+/wp-settings.php
+/wp-signup.php
+/wp-trackback.php
+/xmlrpc.php
+/wp-admin
+/wp-includes
+/wp-content/index.php
+/wp-content/themes/twentyten
+/wp-content/themes/twentyeleven
+/wp-content/themes/twentytwelve
+/wp-content/themes/twentythirteen
+/wp-content/themes/twentyfourteen
+/wp-content/themes/twentyfifteen
+/wp-content/themes/twentysixteen
+/wp-content/themes/twentyseventeen
+/wp-content/themes/index.php
+/wp-content/plugins/index.php
+/wp-content/plugins/akismet*
+/wp-content/plugins/hello.php
 
 # large/disallowed file types
 # a CDN should be used for these
@@ -107,10 +110,3 @@ wp-content/upgrade
 *.asf
 *.wmv
 *.avi
-
-# No .gitignores except this one and /wordpress/.gitignore
-#wordpress/**/.gitignore
-#!wordpress/.gitignore
-#angular/**/.gitignore
-
-/vendor/

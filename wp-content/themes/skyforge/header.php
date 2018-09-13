@@ -1,8 +1,3 @@
-<?php
-/**
- * Starting elements of site
- */
-?>
  <!doctype html>
  <html <?php language_attributes(); ?> >
  <head>
