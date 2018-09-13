@@ -1,0 +1,43 @@
+version: '3'
+
+services:
+    wordpress:
+        image: wordpress:latest
+        links:
+            - mysqldb:mysql
+        volumes:
+            - ./:/var/www/html/
+        expose:
+          - "80"
+        environment:
+            WORDPRESS_DB_USER: wordpress
+            WORDPRESS_DB_PASSWORD: wordpress
+            VIRTUAL_HOST: heykimiee.local
+
+    mysqldb:
+        image: mysql:5
+        volumes:
+            - db_data:/var/lib/mysql
+        environment:
+            MYSQL_ROOT_PASSWORD: secretpress
+            MYSQL_DATABASE: wordpress
+            MYSQL_USER: wordpress
+            MYSQL_PASSWORD: wordpress
+
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin:latest
+        links:
+            - mysqldb:mysql
+        expose:
+          - "80"
+        environment:
+            PMA_HOST: mysql
+            VIRTUAL_HOST: pma.heykimiee.local
+
+volumes:
+    db_data:
+
+networks:
+  default:
+    external:
+      name: nginxproxy
