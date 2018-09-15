@@ -10,6 +10,7 @@ Thumbs.db
 **/vendor
 **/node_modules
 .htaccess
+wp-content/themes/skyforge
 
 # wordpress specific
 wp-config.php

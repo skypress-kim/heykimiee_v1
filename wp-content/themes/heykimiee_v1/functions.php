@@ -1,16 +1,20 @@
 <?php
-function testScripts()
+function hk_enqueue_assets()
 {
-    wp_register_script('testRoutes', get_stylesheet_directory_uri() . '/assets/js/test-routes.js', null, null, true);
-    wp_enqueue_script('testRoutes', 'testRoutes');
-}
-add_action('wp_enqueue_scripts', 'testScripts');
+    // Styles
+    wp_enqueue_style('bootstrap_css', '//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css');
+    wp_enqueue_style('lora_font', '//fonts.googleapis.com/css?family=Lora');
+    wp_enqueue_style('swiper_css', '//cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css');
 
-function getTemplate(string $template)
-{
-    $template_path = __DIR__ . "/templates/$template.html";
-    if (! file_exists($template_path)) {
-        return "<h4>Error Missing Template $template</h4>";
-    }
-    return file_get_contents($template_path);
+    // Scripts
+    // wp_register_script('testRoutes', get_stylesheet_directory_uri() . '/assets/js/test-routes.js', null, null, true);
+    // wp_enqueue_script('testRoutes', 'testRoutes');
+    wp_register_script('bootstrap_js', '//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/js/bootstrap.bundle.min.js', ['jquery'], null, true);
+    wp_register_script('swiper_js', '//cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js', ['jquery'], null, true);
+    wp_register_script('hk_swiper_js', get_stylesheet_directory_uri() . '/assets/js/script.min.js', ['swiper_js'], null, true);
+
+    wp_enqueue_script('bootstrap_js', 'bootstrap_js');
+    wp_enqueue_script('swiper_js', 'swiper_js');
+    wp_enqueue_script('hk_swiper_js', 'hk_swiper_js');
 }
+add_action('wp_enqueue_scripts', 'hk_enqueue_assets');

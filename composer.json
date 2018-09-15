@@ -10,12 +10,12 @@
     ],
     "repositories":[
       {
-        "type": "vcs",
-        "url": "git@github.com:SkyPressATX/skyforge.git"
+        "type": "git",
+        "url": "https://github.com/SkyPressATX/skyforge.git"
       }
     ],
     "require": {
-      "skypress/skyforge": "dev-master"
+      "skypress/skyforge": "dev-dev"
     },
     "config": {
       "vendor-dir": "wp-content/vendor"
