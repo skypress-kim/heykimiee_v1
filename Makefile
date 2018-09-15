@@ -1,20 +1,37 @@
 PHP_IMAGE	:= wpengine/php
+PHP_VERSION := 7.2
 COMPOSER_IMAGE := skypress/wp-composer
 
 default: lint
 
 lint: lint-php
 clean: file-perms wp-clean
-install: composer-install
+install: composer-install file-perms
 update: composer-update
-start: local-start file-perms wp-clean
+start: local-start
 stop: local-stop
-refresh: local-refresh file-perms wp-clean
 restart: stop start
+up: local-up
+down: local-down
+refresh: local-refresh
+
+local-up:
+	@echo
+	# Starting containers with docker-compose up -d
+	docker-compose up -d
+	@echo
+	# Started
+
+local-down:
+	@echo
+	# Stopping containers with docker-compose down
+	docker-compose down
+	@echo
+	# Stopped
 
 local-start:
 	@echo
-	# Start with docker-compose
+	# Start with docker-compose start
 	docker-compose start
 	@echo
 	# Started
@@ -40,7 +57,7 @@ lint-php:
 		@docker run --rm \
 			--volume $(PWD):/workspace \
 			--workdir /workspace \
-			$(PHP_IMAGE):7.2 \
+			$(PHP_IMAGE):$(PHP_VERSION) \
 				/bin/bash -c 'find ./*/plugins ./*/themes \
 					-not \( -path "*/vendor" -prune \) \
 					-not \( -path "./wp-admin" -prune \) \
@@ -66,7 +83,8 @@ composer-install:
 	@docker run --rm \
 		--volume $(PWD):/app \
 		--workdir /app \
-		$(COMPOSER_IMAGE):latest composer install -o
+		$(COMPOSER_IMAGE):latest \
+			composer install -o
 	@echo
 	# Finished install packages
 
@@ -76,7 +94,8 @@ composer-update:
 	@docker run --rm \
 		--volume $(PWD):/app \
 		--workdir /app \
-		$(COMPOSER_IMAGE):latest composer update -o
+		$(COMPOSER_IMAGE):latest \
+			composer update -o
 	@echo
 	# Finished install packages
 
