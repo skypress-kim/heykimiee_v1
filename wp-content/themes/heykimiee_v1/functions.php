@@ -1,4 +1,11 @@
 <?php
+/**
+ * Enqueue Static Assets
+ *
+ * @method hk_enqueue_assets
+ *
+ * @return none
+ */
 function hk_enqueue_assets()
 {
     // Styles
@@ -18,3 +25,21 @@ function hk_enqueue_assets()
     wp_enqueue_script('hk_swiper_js', 'hk_swiper_js');
 }
 add_action('wp_enqueue_scripts', 'hk_enqueue_assets');
+
+/**
+ * Template Map for SkyForge theme
+ *
+ * @method hk_template_map
+ *
+ * @param array $template_map
+ *
+ * @return array
+ */
+function hk_template_map(array $template_map) : array
+{
+    $map = [
+    'page' => 'home'
+  ];
+    return $map;
+}
+add_filter('skyforge_template_map', 'hk_template_map');

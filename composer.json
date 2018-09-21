@@ -15,7 +15,9 @@
       }
     ],
     "require": {
-      "skypress/skyforge": "dev-dev"
+        "skypress/skyforge": "dev-dev",
+        "mustache/mustache": "^2.12",
+        "khromov/mustache-wordpress-cache": "^1.3"
     },
     "config": {
       "vendor-dir": "wp-content/vendor"
