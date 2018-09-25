@@ -4,19 +4,21 @@ COMPOSER_IMAGE := skypress/wp-composer
 COMPOSER_VERSION := latest
 USER_NAME := www-data
 USER_GROUP := www-data
+CURRENT_USER := $(shell whoami)
 
 default: lint
 
 lint: lint-php
-clean: file-perms wp-clean
-install: composer-install file-perms
-update: composer-update
+clean: file-own file-perms wp-clean
+install: composer-install file-own file-perms
+update: composer-update file-own file-perms
 start: local-start
 stop: local-stop
 restart: stop start
 up: local-up
 down: local-down
 refresh: local-refresh
+own: file-own file-perms
 
 local-up:
 	@echo
@@ -79,6 +81,13 @@ file-perms:
 	sudo find . -type f -exec chmod 664 {} \;
 	@echo
 	# File permissions set
+
+file-own:
+	@echo
+	# Changing ownership project files
+	sudo chown -R $(CURRENT_USER):$(USER_GROUP) $(PWD)
+	@echo
+	# Ownsership set
 
 composer-install:
 	@echo

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bb809f8e8a24b6e9941e5ddfd595a963",
+    "content-hash": "6cad93f8407e05c1e91d009fb0011f12",
     "packages": [
         {
             "name": "composer/installers",
@@ -208,14 +208,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/SkyPressATX/skyforge.git",
-                "reference": "3b706204187117be3ffcdb0e1c3e40cdea78e43b"
+                "reference": "f71dd9a08f41fced37d3e20187d7982c9a8103bd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/SkyPressATX/skyforge/zipball/f71dd9a08f41fced37d3e20187d7982c9a8103bd",
+                "reference": "f71dd9a08f41fced37d3e20187d7982c9a8103bd",
+                "shasum": ""
             },
             "require": {
                 "composer/installers": "^1.6",
+                "khromov/mustache-wordpress-cache": "^1.3",
                 "mustache/mustache": "^2.12"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^7.3"
             },
             "type": "wordpress-theme",
             "autoload": {
@@ -233,7 +237,11 @@
                 }
             ],
             "description": "SkyForge is a template based WordPress theme created by SkyPress.",
-            "time": "2018-09-15T02:15:06+00:00"
+            "support": {
+                "source": "https://github.com/SkyPressATX/skyforge/tree/dev",
+                "issues": "https://github.com/SkyPressATX/skyforge/issues"
+            },
+            "time": "2018-09-25T03:09:09+00:00"
         }
     ],
     "packages-dev": [],
