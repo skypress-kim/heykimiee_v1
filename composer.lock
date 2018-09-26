@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6cad93f8407e05c1e91d009fb0011f12",
+    "content-hash": "783a47193b7223248d581624ebd6cc7d",
     "packages": [
         {
             "name": "composer/installers",
@@ -208,13 +208,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/SkyPressATX/skyforge.git",
-                "reference": "f71dd9a08f41fced37d3e20187d7982c9a8103bd"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/SkyPressATX/skyforge/zipball/f71dd9a08f41fced37d3e20187d7982c9a8103bd",
-                "reference": "f71dd9a08f41fced37d3e20187d7982c9a8103bd",
-                "shasum": ""
+                "reference": "948209f2aac14e13c5e0b59b3be39f6f6cfa3032"
             },
             "require": {
                 "composer/installers": "^1.6",
@@ -237,11 +231,7 @@
                 }
             ],
             "description": "SkyForge is a template based WordPress theme created by SkyPress.",
-            "support": {
-                "source": "https://github.com/SkyPressATX/skyforge/tree/dev",
-                "issues": "https://github.com/SkyPressATX/skyforge/issues"
-            },
-            "time": "2018-09-25T03:09:09+00:00"
+            "time": "2018-09-26T02:44:56+00:00"
         }
     ],
     "packages-dev": [],

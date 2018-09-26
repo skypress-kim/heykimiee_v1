@@ -8,7 +8,7 @@ namespace SkyForge;
  *
  * @var \SkyForge\Mustache $mustache
  * @var int $post_id
- * @var array $template_map
+ * @var string $template_type
  */
 class Init
 {
@@ -31,13 +31,11 @@ class Init
     public $post_id;
 
     /**
-     * Template Map
+     * Template Type
      *
-     * @since 0.1.0
-     *
-     * @var array
+     * @var string
      */
-    public $template_map;
+    public $template_type;
 
     /**
      * Init constructor
@@ -63,70 +61,12 @@ class Init
      */
     public function render() : string
     {
-        $this->template_map = $this->getTemplateMap();
-        $post_data = $this->getPostData();
-        $template = $this->getTemplate($post_data);
-        return '<body>' . $template->render($post_data) . '</body>';
-    }
-
-    /**
-     * Get Template
-     *
-     * @method getTemplate
-     *
-     * @since 0.1.0
-     *
-     * @param  object $post_data
-     *
-     * @return object
-     */
-    public function getTemplate(object $post_data) : object
-    {
-        // $slug = $this->getTemplateSlug($post_data);
-        // $template = $this->template_map[$slug];
-        return $this->mustache->loadTemplate('page');
-    }
-
-    /**
-     * Get the Templage Slug
-     *
-     * @method getTemplateSlug
-     *
-     * @since 0.1.0
-     *
-     * @param  object $post_data
-     *
-     * @return string
-     */
-    public function getTemplateSlug(object $post_data) : string
-    {
-        if (! property_exists($post_data, 'type')) {
-            return 'page';
+        $data = $this->getPostData();
+        if (empty($this->template_type)) {
+            $this->template_type = 'page'; // Default to page
         }
-        if (! isset($this->template_map[$post_data->type])) {
-            return 'page';
-        }
-        return $this->template_map[$post_data->type];
-    }
-
-    /**
-     * Get the Template Map
-     *
-     * @method getTemplateMap
-     *
-     * @since 0.1.0
-     *
-     * @return array
-     */
-    public function getTemplateMap() : array
-    {
-        $default = [
-          'page'  => 'page',
-          'post'  => 'post'
-        ];
-        $filtered = apply_filters('skyforge_template_map', []);
-        $map = array_merge($default, $filtered);
-        return $map;
+        $html = $this->mustache->loadTemplate($this->template_type)->render($data);
+        return $html;
     }
 
     /**
@@ -141,9 +81,10 @@ class Init
     public function getPostData() : object
     {
         $post = get_post();
-        $api_endpoint = $this->determineApiEndpoint($post);
-        $request      = $this->getNewRestRequest($api_endpoint);
-        $data         = $this->getDataFromRestServer($request);
+        $this->template_type    = strtolower($post->post_type);
+        $api_endpoint           = $this->determineApiEndpoint($post->ID, $post->post_type);
+        $request                = $this->getNewRestRequest($api_endpoint);
+        $data                   = $this->getDataFromRestServer($request);
         return $data;
     }
 
@@ -156,14 +97,15 @@ class Init
      *
      * @see SkyForge\RestEndpoint
      *
-     * @param  object $post
+     * @param  int $id
+     * @param  string $type
      *
      * @return string
      */
-    public function determineApiEndpoint(object $post) : string
+    public function determineApiEndpoint(int $id, string $type) : string
     {
         $rest_endpoint = new RestEndpoint();
-        return $rest_endpoint->getEndpoint($post->ID, $post->post_type);
+        return $rest_endpoint->getEndpoint($id, $type);
     }
 
     /**
